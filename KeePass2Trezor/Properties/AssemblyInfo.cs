@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Trezor Key Provider Plugin")]
 [assembly: AssemblyDescription("Trezor Key Provider Plugin for KeePass")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("vnau")]
+[assembly: AssemblyCompany("elebree")]
 [assembly: AssemblyProduct("KeePass Plugin")]
-[assembly: AssemblyCopyright("Copyright © 2025 vnau")]
+[assembly: AssemblyCopyright("Copyright © 2025 elebree")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

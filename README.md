@@ -4,9 +4,9 @@
 <p align="center">Less clicks, more security.</p>
 
 <p align="center">
-  <a href="https://github.com/vnau/keepass2trezor/actions/workflows/build.yml"><img src="https://github.com/vnau/keepass2trezor/actions/workflows/build.yml/badge.svg?color=gray" alt="Build Status"/></a>
-  <a href="https://github.com/vnau/keepass2trezor/releases/latest"><img src="https://img.shields.io/github/release/vnau/keepass2trezor" alt="Latest Release"/></a>
-  <a href="https://github.com/vnau/keepass2trezor/releases/latest/download/keepass2trezor.zip"><img src="https://img.shields.io/github/downloads/vnau/keepass2trezor/total.svg" alt="Total Downloads"/></a>
+  <a href="../../actions/workflows/build.yml"><img src="../../actions/workflows/build.yml/badge.svg?color=gray" alt="Build Status"/></a>
+  <a href="../../releases/latest"><img src="https://img.shields.io/github/release/elebree/keepass2trezor" alt="Latest Release"/></a>
+  <a href="../../releases/latest/download/keepass2trezor.zip"><img src="https://img.shields.io/github/downloads/elebree/keepass2trezor/total.svg" alt="Total Downloads"/></a>
 </p>
 <br/>
 
@@ -24,7 +24,7 @@ It supports ```Trezor One```, ```Model T```, ```Safe 3``` and ```Safe 5``` on Wi
 
 ## How to Use
 
-1. Download **KeePass2Trezor.dll** from the [latest release](https://github.com/vnau/keepass2trezor/releases).
+1. Download **KeePass2Trezor.dll** from the [latest release](../../releases).
 2. Copy the DLL to the **Plugins** folder of your [KeePass 2.x](https://keepass.info/) installation.
 3. Create a new database, selecting **Trezor Key Provider** in the **Key file/provider** field.
 4. Follow the instructions, unlock your Trezor if necessary, and confirm decryption of the key by pressing the button on the device.

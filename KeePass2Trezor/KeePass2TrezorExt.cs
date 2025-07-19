@@ -33,7 +33,7 @@ namespace KeePass2Trezor
 
         public override string UpdateUrl
         {
-            get { return "https://github.com/vnau/KeePass2Trezor/raw/master/keepass.version"; }
+            get { return "https://github.com/elebree/KeePass2Trezor/raw/master/keepass.version"; }
         }
 
         public static IPluginHost Host
