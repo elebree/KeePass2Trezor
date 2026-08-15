@@ -206,6 +206,12 @@ namespace Trezor.Net
         {
             if (returnMessage is Failure failure)
             {
+                //A device that only supports the Trezor Host Protocol (THP) rejects every codec v1 message with this code.
+                if (failure.Code == Failure.FailureType.FailureInvalidProtocol)
+                {
+                    throw new UnsupportedProtocolException($"The device rejected the message because it does not support the v1 protocol. Message: {failure.Message}");
+                }
+
                 throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
             }
         }

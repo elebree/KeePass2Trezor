@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using ProtoBuf;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -279,24 +280,26 @@ namespace Trezor.Net
             var thirdByteNot35 = readBuffer[2] != 35;
             if (firstByteNot63 || secondByteNot35 || thirdByteNot35)
             {
-                var message = $"An error occurred while attempting to read the message from the device. The last written message was a {_LastWrittenMessage?.GetType().Name}. In the first chunk of data ";
+                var badBytes = new List<string>();
 
                 if (firstByteNot63)
                 {
-                    message += "the first byte was not 63";
+                    badBytes.Add("the first byte was not 63");
                 }
 
                 if (secondByteNot35)
                 {
-                    message += "the second byte was not 35";
+                    badBytes.Add("the second byte was not 35");
                 }
 
                 if (thirdByteNot35)
                 {
-                    message += "the third byte was not 35";
+                    badBytes.Add("the third byte was not 35");
                 }
 
-                throw new ReadException(message, readBuffer, _LastWrittenMessage);
+                var message = $"The device did not reply with a valid protocol (codec v1) header. The last written message was a {_LastWrittenMessage?.GetType().Name}. In the first chunk of data {string.Join(", ", badBytes)}. This is expected for devices that only support the Trezor Host Protocol (THP), such as the Trezor Safe 7.";
+
+                throw new UnsupportedProtocolException(message, _LastWrittenMessage);
             }
 
             //From Trezor-Android TrezorManager.messageRead

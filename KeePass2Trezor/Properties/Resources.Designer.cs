@@ -124,7 +124,18 @@ namespace KeePass2Trezor.Properties {
                 return ResourceManager.GetString("ExceptionInvalidTrezorMasterKeyVersion", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to This Trezor device uses the Trezor Host Protocol (THP), which this version of the Trezor Key Provider Plugin does not support yet.
+        ///
+        ///Trezor Safe 7 and other THP-only devices cannot be used to unlock the database. Trezor One, Model T, Safe 3 and Safe 5 are supported..
+        /// </summary>
+        internal static string ExceptionUnsupportedProtocol {
+            get {
+                return ResourceManager.GetString("ExceptionUnsupportedProtocol", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Operation confirmed.
         /// </summary>

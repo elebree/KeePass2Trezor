@@ -140,6 +140,11 @@ Key ID: {0}</value>
   <data name="ExceptionInvalidTrezorMasterKeyVersion" xml:space="preserve">
     <value>Invalid Trezor master key version. You may need a newer version of the Trezor Key Provider Plugin.</value>
   </data>
+  <data name="ExceptionUnsupportedProtocol" xml:space="preserve">
+    <value>This Trezor device uses the Trezor Host Protocol (THP), which this version of the Trezor Key Provider Plugin does not support yet.
+
+Trezor Safe 7 and other THP-only devices cannot be used to unlock the database. Trezor One, Model T, Safe 3 and Safe 5 are supported.</value>
+  </data>
   <data name="OperationConfirmedMessage" xml:space="preserve">
     <value>Operation confirmed</value>
   </data>

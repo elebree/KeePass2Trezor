@@ -99,6 +99,12 @@ namespace KeePass2Trezor.Device
                 SetState(KeyDeviceState.Confirmed, Resources.OperationConfirmedMessage);
                 return res.Value;
             }
+            catch (UnsupportedProtocolException ex)
+            {
+                //The device only speaks the Trezor Host Protocol (Trezor Safe 7 and newer).
+                SetState(KeyDeviceState.Error, Resources.ExceptionUnsupportedProtocol);
+                throw new Exception(Resources.ExceptionUnsupportedProtocol, ex);
+            }
             catch (Exception ex)
             {
                 var message = string.Join("\r\n\r\n", new string[] {

@@ -93,7 +93,19 @@ namespace Trezor.Net.Manager
 
                 TrezorManagers = new ReadOnlyCollection<T>(tempList);
 
-                await trezorManager.InitializeAsync().ConfigureAwait(false);
+                try
+                {
+                    await trezorManager.InitializeAsync().ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (_FirstTrezorTaskCompletionSource.Task.Status == TaskStatus.WaitingForActivation)
+                        _FirstTrezorTaskCompletionSource.TrySetException(ex);
+
+                    //The manager stays in TrezorManagers so the device listener does not retry it
+                    //on every poll. It is disposed when the device is disconnected.
+                    return;
+                }
 
                 if (_FirstTrezorTaskCompletionSource.Task.Status == TaskStatus.WaitingForActivation)
                     _FirstTrezorTaskCompletionSource.SetResult(trezorManager);

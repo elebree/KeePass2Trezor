@@ -89,6 +89,8 @@ namespace Trezor.Net.Contracts.Common
             FailureWipeCodeMismatch = 13,
             [global::ProtoBuf.ProtoEnum(Name = @"Failure_InvalidSession")]
             FailureInvalidSession = 14,
+            [global::ProtoBuf.ProtoEnum(Name = @"Failure_InvalidProtocol")]
+            FailureInvalidProtocol = 15,
             [global::ProtoBuf.ProtoEnum(Name = @"Failure_FirmwareError")]
             FailureFirmwareError = 99,
         }
